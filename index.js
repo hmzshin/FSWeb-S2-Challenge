@@ -99,13 +99,14 @@ function cumleKur(
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
+console.log(cumleKur("Hello World!"))
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
-
+console.log(cumleKur("Hello ", "World!"))
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini 
 elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle =cumleKur("Ben ", "iyi ","bir ", "yazılımcı ", "olacağım!") ;
 
 /* kodlar buraya */
 
@@ -128,8 +129,9 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function cumlelereDonustur(arr,seperator =",",) {
+  const kelimeBirlestir = arr.map((dizi) => dizi.join(seperator));
+  return kelimeBirlestir;
 }
 
 /* GÖREV 2:
@@ -145,9 +147,20 @@ function cumlelereDonustur(/* kodlar buraya */) {
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function paragrafOlustur(arr,cumleKurF,cumleDonusturF) {
+  const cumleler = cumleDonusturF(arr, " "); // alınan array cümleye dönüştürüldü.
+ const tSayi=[];
+ for (let i = 0; i < cumleler.length; i++) {
+ if (i%2!=0){ 
+  tSayi.push(i) ;
+ }  
+ }
+ const paragraf = cumleKurF(cumleler[tSayi[0]],cumleler[tSayi[1]],cumleler[tSayi[2]],cumleler[tSayi[3]],cumleler[tSayi[4]])
+ console.log("paragraf başlar :",paragraf);
+ return paragraf;
 }
+
+
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
